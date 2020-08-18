@@ -168,16 +168,6 @@ async function createIntern() {
         console.log(err);
     }
 }
-async function init() {
-    try {
-        console.log("Please Build your team");
-        const answers = await inquirer.prompt(managerQuestions);
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        employeeTeam.push(manager);
-        promptMoreUser();
-    }
-    catch (err) {
-        console.log(err);
-    }
+
 }
 init();
