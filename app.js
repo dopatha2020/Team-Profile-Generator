@@ -113,18 +113,7 @@ const internQuestions = [
         validate: valueValidator
     }
 ]
-const moreEmployeeQuestions = [
-    {
-        type: "list",
-        name: "options",
-        message: "Which type of team member would you like to add?",
-        choices: [
-            "Engineer",
-            "Intern",
-            "I don't want to add anymore members"
-        ]
-    }
-]
+
 async function promptMoreUser() {
     try {
         const answers = await inquirer.prompt(moreEmployeeQuestions);
@@ -168,6 +157,16 @@ async function createIntern() {
         console.log(err);
     }
 }
-
+async function init() {
+    try {
+        console.log("Please Build your team");
+        const answers = await inquirer.prompt(managerQuestions);
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+        employeeTeam.push(manager);
+        promptMoreUser();
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 init();
