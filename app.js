@@ -113,7 +113,18 @@ const internQuestions = [
         validate: valueValidator
     }
 ]
-
+const moreEmployeeQuestions = [
+    {
+        type: "list",
+        name: "options",
+        message: "Which type of team member would you like to add?",
+        choices: [
+            "Engineer",
+            "Intern",
+            "I don't want to add anymore members"
+        ]
+    }
+]
 async function promptMoreUser() {
     try {
         const answers = await inquirer.prompt(moreEmployeeQuestions);
